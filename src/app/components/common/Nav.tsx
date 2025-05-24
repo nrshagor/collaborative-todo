@@ -28,7 +28,7 @@ const Nav = () => {
 
   const menuItems = [
     { item: "home", path: "/" },
-    { item: "Dashboard", path: "dashboard" },
+    { item: "Dashboard", path: "/dashboard" },
   ];
 
   return (
@@ -60,7 +60,7 @@ const Nav = () => {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="dashboard">
+          <Link color="foreground" href="/dashboard">
             Dashboard
           </Link>
         </NavbarItem>

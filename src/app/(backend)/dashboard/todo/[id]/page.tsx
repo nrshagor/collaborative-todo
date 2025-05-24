@@ -16,6 +16,7 @@ import {
   Textarea,
   useDisclosure,
 } from "@heroui/react";
+import InviteUser from "@/app/components/InviteUser";
 
 type ToDoAppType = {
   id: string;
@@ -173,7 +174,7 @@ const Page = () => {
       );
 
       if (!res.ok) throw new Error("Failed to update status");
-
+      console.log(res);
       setTasks((prev) =>
         prev.map((task) =>
           task.id === taskId ? { ...task, status: backendStatus } : task
@@ -223,6 +224,7 @@ const Page = () => {
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-semibold">Tasks</h2>
           <Button onPress={onOpen}>Create Task</Button>
+          <InviteUser appId={id as string} token={token as string} />
         </div>
 
         <div className="grid gap-3">
@@ -232,7 +234,8 @@ const Page = () => {
             tasks.map((task) => (
               <div
                 key={task.id}
-                className="border p-3 rounded shadow-sm bg-gray-50">
+                className="border p-3 rounded shadow-sm bg-gray-50"
+              >
                 <h3 className="font-semibold">{task.title}</h3>
                 <p className="text-sm text-gray-600">{task.description}</p>
                 <p className="text-xs text-gray-500">
@@ -250,7 +253,8 @@ const Page = () => {
                         e.target.value as keyof typeof statusMapping
                       )
                     }
-                    isDisabled={taskLoading}>
+                    isDisabled={taskLoading}
+                  >
                     <SelectItem key="in-progress">In Progress</SelectItem>
                     <SelectItem key="stale">Stale</SelectItem>
                     <SelectItem key="done">Done</SelectItem>
@@ -289,7 +293,8 @@ const Page = () => {
               selectedKeys={[String(form.priority)]}
               onChange={(e) =>
                 setForm({ ...form, priority: Number(e.target.value) })
-              }>
+              }
+            >
               <SelectItem key="1">Low</SelectItem>
               <SelectItem key="2">Medium</SelectItem>
               <SelectItem key="3">High</SelectItem>
@@ -302,7 +307,8 @@ const Page = () => {
                   ...form,
                   status: e.target.value as "in-progress" | "stale" | "done",
                 })
-              }>
+              }
+            >
               <SelectItem key="in-progress">In Progress</SelectItem>
               <SelectItem key="stale">Stale</SelectItem>
               <SelectItem key="done">Done</SelectItem>

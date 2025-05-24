@@ -191,7 +191,7 @@ const Page = () => {
                   endContent={
                     <button
                       aria-label="toggle password visibility"
-                      className="focus:outline-none"
+                      className="focus:outline-none text-black dark:text-white"
                       type="button"
                       onClick={toggleVisibility}>
                       {isVisible ? <PiEye /> : <PiEyeClosed />}

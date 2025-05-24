@@ -138,7 +138,7 @@ const Page = () => {
         {apps.map((app) => (
           <Link
             key={app.id}
-            href={`/dashboard/task/${app.id}`}
+            href={`/dashboard/todo/${app.id}`}
             className="block bg-white rounded-lg shadow p-4 hover:bg-gray-100 text-black dark:text-white">
             <h2 className="text-xl font-semibold text-black dark:text-white">
               {app.name}

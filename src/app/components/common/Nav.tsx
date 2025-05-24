@@ -26,7 +26,10 @@ const Nav = () => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const menuItems = ["/", "Log Out"];
+  const menuItems = [
+    { item: "home", path: "/" },
+    { item: "Dashboard", path: "dashboard" },
+  ];
 
   return (
     <Navbar
@@ -54,6 +57,11 @@ const Nav = () => {
         <NavbarItem>
           <Link color="foreground" href="/">
             Home
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" href="dashboard">
+            Dashboard
           </Link>
         </NavbarItem>
       </NavbarContent>
@@ -89,8 +97,8 @@ const Nav = () => {
                   ? "danger"
                   : "foreground"
               }
-              href={item}>
-              {item}
+              href={item.path}>
+              {item.item}
             </Link>
           </NavbarMenuItem>
         ))}
